@@ -1,16 +1,13 @@
-import google.generativeai as genai
-
-# Configure API Key
 import os
 from dotenv import load_dotenv
-
+from google import genai
 
 load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 # Load Gemini Model
-model = genai.GenerativeModel("gemini-2.5-flash")
+
 
 
 
@@ -46,8 +43,10 @@ No paragraphs.
 "This is an educational prototype."
 
 """
-
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents=prompt
+)
 
     return response.text
 patient = """
@@ -56,4 +55,11 @@ Blood Pressure : 150
 Cholesterol : 240
 Maximum Heart Rate : 145
 """
+
+print(cardiology_agent(patient, "High Risk", 87.5))
+
+    
+
+    
+
 

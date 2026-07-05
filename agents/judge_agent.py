@@ -1,14 +1,10 @@
-import google.generativeai as genai
-
 import os
 from dotenv import load_dotenv
-
+from google import genai
 
 load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
-model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 def judge_agent(cardio_report,
@@ -50,6 +46,9 @@ Tasks:
 
 """
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents=prompt
+)
 
     return response.text
