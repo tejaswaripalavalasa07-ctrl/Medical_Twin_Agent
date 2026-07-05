@@ -49,14 +49,7 @@ No paragraphs.
 )
 
     return response.text
-patient = """
-Age : 52
-Blood Pressure : 150
-Cholesterol : 240
-Maximum Heart Rate : 145
-"""
 
-print(cardiology_agent(patient, "High Risk", 87.5))
 
     
 
