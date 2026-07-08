@@ -238,12 +238,12 @@ if st.button("Run Simulation"):
         st.error("High Risk")
     else:
         st.success("Low Risk")
-judge_response = judge_agent(
+    judge_response = judge_agent(
     agent_response,          # Cardiology Agent output
     diabetes_response,
     safety_response,
     probability[0][1] * 100,      # Original Risk
     twin_probability[0][1] * 100  # Digital Twin Risk
-)
-st.subheader("⚖️ Judge Agent")
-st.success(judge_response)
+    )
+    st.subheader("⚖️ Judge Agent")
+    st.success(judge_response)
